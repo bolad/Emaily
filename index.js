@@ -1,14 +1,12 @@
 //get access to the expres library
-const express = require("express");
+const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 
 //create the express application
 const app = express();
 
-//create a route handler associated with a given route
-app.get("/", (req, res) => {
-  res.send({ hi: "there" });
-});
-
+passport.use(new GoogleStrategy());
 
 //Heroku dynamic port binding
 //look at the underlying environment and see if they have declared a port for us to use(heroku)
